@@ -1,11 +1,15 @@
 class UsersController < ApplicationController
 
 	def index
-		@user = User.all
+		@user = User.all.reverse
+			if !current_user
+	  			redirect_to login_path
+	    	end
 	end
 
 	def show
 		@user = User.find(params[:id])
+		@boats = @user.boats
 	end
 	
 
@@ -16,10 +20,11 @@ class UsersController < ApplicationController
 	def create
 		@user = User.create(user_params)
 		if @user.save
-			redirect_to '/'
-		else
-			redirect_to :back
-		end	
+		session[:user_id] = @user.id
+			redirect_to boats_path
+	    else
+	      redirect_to log_in_path
+	    end
 	end
 
 	private

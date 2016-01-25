@@ -2,7 +2,7 @@
 <h1>Sign In</h1>
 
 <h1>Log In</h1>
-<%=form_tag sessions_new_path do %>
+<%=form_tag log_in_path do %>
 <%=label_tag :username %>
 <%=text_field_tag :username %>
 <%=label_tag :password %>
@@ -10,3 +10,5 @@
 <%=submit_tag "Log in" %>
 <%end%> 
 <p>Find me in app/views/sessions/new.html.erb</p>
+<h1>Not a member? Sign up!</h1>
+<a href="/users/new">Sign Up</a>

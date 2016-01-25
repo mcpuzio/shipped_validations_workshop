@@ -1,6 +1,24 @@
 Rails.application.routes.draw do
 
+  get 'jobs/new'
+
+  get 'jobs/create'
+
+  get 'jobs/destroy'
+
+  get 'jobs/edit'
+
+  # get 'boats/index'
+
+  # get 'boats/new'
+
+  get 'boats/edit' => 'boats#edit'
+
+  get 'boats/destroy' => 'boats#destroy'
+
   get 'sessions/new'
+
+  get 'sessions/destroy'
 
   # get 'sessions/create'
 
@@ -10,9 +28,11 @@ Rails.application.routes.draw do
 
   # get 'users/new'
 
-  get '/login' => 'sessions#new'
+  get '/log-in' => 'sessions#new'
 
-  post '/login' => 'sessions#create'
+  post '/log-in' => 'sessions#create'
+
+  get '/log-out' => 'sessions#destroy', as: :log_out
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -28,6 +48,7 @@ Rails.application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   resources :users
+  resources :boats
 
   # Example resource route with options:
   #   resources :products do

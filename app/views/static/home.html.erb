@@ -1,4 +1,13 @@
-<h1>Welcome to ShipApp!</h1>
+<h1>Welcome to ShipApp, !</h1>
 <p>Find me in app/views/static/home.html.erb</p>
+<span>
+	<%= @users.each do |user| %>
+		<% user.name %>
+		<% @user.boat_name %>
+		<% end %>
+</span>
+
+<span><%= link_to "Add A New Boat", new_boat_path %></span>
+
 <h2>Sign Up!</h2>
 <%= link_to "Sign Up", new_user_path %>
